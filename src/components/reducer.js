@@ -1,4 +1,4 @@
-import { ADD_TODO, DEL_TODO, FINISH_TODO, UPDATE_TODO } from "./action";
+import { ADD_TODO, DEL_TODO, FINISH_TODO, UPDATE_TODO,EDIT_TODO } from "./action";
 const initialState = {
   todos: [
     { value: "1个待办事项", status: "finish", id: 1 },
@@ -39,7 +39,16 @@ export default (state = initialState, { type, payload }) => {
         arr2.push(ele);
       });
       return { todos: [...arr2] };
-      
+    case EDIT_TODO:
+      let {value,ind} = payload
+      let arr3 = [];
+      state.todos.forEach(ele => {
+        if (ele.id === ind) {
+          ele.value = value;
+        }
+        arr3.push(ele);
+      });
+      return { todos: [...arr3] };
     default:
       return state;
   }
