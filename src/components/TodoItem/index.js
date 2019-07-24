@@ -57,7 +57,11 @@ const mapDispatchToProps = dispatch => {
           //此处为单击事件要执行的代码
          if(pDom.nodeName === 'P'){
            let value = pDom.childNodes[0].value;
-           dispatch(editAction({value,ind}))
+          //  console.log(value);
+           if(value){
+            dispatch(editAction({value,ind}))
+           }
+           
          }
       }, 250);
     }

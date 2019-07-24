@@ -6,6 +6,7 @@
 
 }
 .item p{
+    /* background: lightcyan; */
     display: inline-block;
     height: 40px;
     width: 400px;
